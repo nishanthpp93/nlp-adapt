@@ -8,7 +8,7 @@ export RANDOM_SAMPLE=50
 export SAMPLE_FILE=$DATA_DIRECTORY/nlptab_manifest.txt
 
 #UIMA
-export UIMA_HOME=/usr/local/nlp_tools/uima
+export UIMA_HOME=/usr/local/nlp_tools/apache-uima
 
 #CLAMP
 export CLAMP_HOME=/usr/local/nlp_tools/ClampCmd_1.6.3
