@@ -19,8 +19,8 @@ pushd $AMICUS_HOME
 popd
 
 # --- RUN ---
-if [ -f /home/ubuntu/Downloads/export.yml ]; then
-    java -jar $AMICUS_HOME/amicus.jar /home/ubuntu/Downloads/export.yml
+if [ -f /usr/local/nlp_tools/nlp_adapt/export.yml ]; then
+    java -jar $AMICUS_HOME/amicus.jar /usr/local/nlp_tools/nlp_adapt/export.yml
 else
     java -jar $AMICUS_HOME/amicus.jar $AMICUS_CONFIG/merge_concepts.yml
 fi

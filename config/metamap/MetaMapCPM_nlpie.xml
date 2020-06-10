@@ -20,13 +20,13 @@
   <collectionReader>
     <collectionIterator>
       <descriptor>
-        <import location="/home/ubuntu/metamap/nlpie/FileSystemCollectionReader.xml"/>
+        <import location="/usr/local/nlp_tools/nlp-adapt/config/metamap/FileSystemCollectionReader.xml"/>
       </descriptor>
       <configurationParameterSettings>
         <nameValuePair>
           <name>InputDirectory</name>
           <value>
-            <string>/home/ubuntu/host_data/data_in</string>
+            <string>/usr/local/nlp_tools/host_data/data_in</string>
           </value>
         </nameValuePair>
       </configurationParameterSettings>
@@ -35,7 +35,7 @@
   <casProcessors casPoolSize="3" processingUnitThreadCount="1">
     <casProcessor deployment="integrated" name="MetaMap Pipeline">
       <descriptor>
-        <import location="/home/ubuntu/metamap/nlpie/MetaMapApiAE.xml"/>
+        <import location="/usr/local/nlp_tools/nlp-adapt/config/metamap/MetaMapApiAE.xml"/>
       </descriptor>
       <deploymentParameters/>
       <errorHandling>
@@ -47,7 +47,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="XMI Writer">
       <descriptor>
-        <import location="/home/ubuntu/metamap/nlpie/XmiWriterCasConsumer.xml"/>
+        <import location="/usr/local/nlp_tools/nlp-adapt/config/metamap/XmiWriterCasConsumer.xml"/>
       </descriptor>
       <deploymentParameters/>
       <errorHandling>
@@ -60,7 +60,7 @@
         <nameValuePair>
           <name>OutputDirectory</name>
           <value>
-            <string>/home/ubuntu/host_data/metamap_out</string>
+            <string>/usr/local/nlp_tools/host_data/metamap_out</string>
           </value>
         </nameValuePair>
       </configurationParameterSettings>

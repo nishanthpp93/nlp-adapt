@@ -8,29 +8,29 @@ pipelineName: NLPIE Merge Pipeline
 allSystemsUsed:
 - {
     name: ctakes,
-    dataPath: /home/ubuntu/host_data/ctakes_out,
+    dataPath: /usr/local/nlp_tools/host_data/ctakes_out,
     readFromView: _InitialView,
     saveIntoView: CtakesView
   }
 - {
     name: biomedicus,
-    dataPath: /home/ubuntu/host_data/biomedicus_out,
+    dataPath: /usr/local/nlp_tools/host_data/biomedicus_out,
     readFromView: SystemView,
     saveIntoView: BiomedicusView
   }
 - {
     name: metamap,
-    dataPath: /home/ubuntu/host_data/metamap_out,
+    dataPath: /usr/local/nlp_tools/host_data/metamap_out,
     readFromView: _InitialView,
     saveIntoView: MetaMapView
   }
 - {
     name: clamp,
-    dataPath: /home/ubuntu/host_data/clamp_out,
+    dataPath: /usr/local/nlp_tools/host_data/clamp_out,
     readFromView: _InitialView,
     saveIntoView: ClampView
   }
-xmiOutPath: /home/ubuntu/host_data/amicus_out
+xmiOutPath: /usr/local/nlp_tools/host_data/amicus_out
 
 pipelineComponents:
 - !!edu.umn.amicus.config.MergerConfig
@@ -71,6 +71,6 @@ pipelineComponents:
     fromView: MergedView
   }
   documentSummarizer: edu.umn.amicus.summary.EachSoloCsvSummarizer
-  documentSummaryOutDir: /home/ubuntu/host_data/amicus_summary
+  documentSummaryOutDir: /usr/local/nlp_tools/host_data/amicus_summary
   collectionSummarizer: edu.umn.amicus.summary.EachSoloCsvSummarizer
-  collectionSummaryOutFile: /home/ubuntu/host_data/amicus_summary/collection_concepts_voted.csv
+  collectionSummaryOutFile: /usr/local/nlp_tools/host_data/amicus_summary/collection_concepts_voted.csv

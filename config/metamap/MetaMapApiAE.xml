@@ -74,7 +74,7 @@ If this parameter is not set by the user, then the analysis engine will try to u
     </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
-        <import location="/home/ubuntu/metamap/nlpie/CombinedTypeSystem.xml"/>
+        <import location="/usr/local/nlp_tools/nlp-adapt/config/metamap/CombinedTypeSystem.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

@@ -75,7 +75,7 @@
 		    <nameValuePair>
 		        <name>InputDirectory</name>
 		        <value>
-		            <string>C:/Program Files/apache-uima/examples/data</string>
+		            <string>/usr/local/nlp_tools/apache-uima/examples/data</string>
 		        </value>
 		    </nameValuePair>
             <nameValuePair>
