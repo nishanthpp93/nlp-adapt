@@ -1,7 +1,7 @@
 # MetaMap UIMA settings
 # source this in bash or sh using:
 #   . ./bin/setup_uima.sh
-BASEDIR=/usr/local/nlp_tools/metamap_2020/public_mm
+BASEDIR=$TOOLS_HOME/metamap_2020/public_mm
 export BASEDIR
 
 MM_API_UIMA=${BASEDIR}/src/uima
@@ -12,7 +12,7 @@ PROLOGBEANS=${BASEDIR}/src/javaapi/dist/prologbeans.jar
 export PROLOGBEANS
 
 # Apache UIMA classes
-UIMA_HOME=/usr/local/nlp_tools/apache-uima
+UIMA_HOME=$TOOLS_HOME/apache-uima
 export UIMA_HOME
 UIMA_CLASSPATH=\
 ${UIMA_HOME}/examples/resources:\
