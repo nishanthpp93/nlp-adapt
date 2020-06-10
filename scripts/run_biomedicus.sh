@@ -1,5 +1,5 @@
 ##### Run BiomedICUS #####
-$BIOMEDICUS_HOME/bin/runCPE.sh $BIOMEDICUS_HOME/nlpie/PlainTextCPM_nlpie.xml
+$BIOMEDICUS_HOME/bin/runCPE.sh $BIOMEDICUS_CONFIG/PlainTextCPM_nlpie.xml
 
 ##### Create Archive for NLP-TAB #####
 if [ ! -f $SAMPLE_FILE ]; then

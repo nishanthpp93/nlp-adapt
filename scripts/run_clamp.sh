@@ -1,14 +1,14 @@
 ##### Run CLAMP #####
-source /home/ubuntu/umls.sh
+source $ADAPT_SCRIPTS/umls.sh
 mkdir -p $CLAMP_OUT
-$CLAMP_HOME/nlpie/run_nlpie_pipeline.sh
+$CLAMP_CONFIG/run_nlpie_pipeline.sh
 
 ##### Create Archive for NLP-TAB #####
 rm $CLAMP_OUT/*.txt
 pushd $CLAMP_OUT
 for f in *.xmi; do mv -- "$f" "${f%.xmi}.txt.xmi"; done
 
-cp $CLAMP_HOME/nlpie/TypeSystem.xml $CLAMP_OUT/TypeSystem.xml
+cp $CLAMP_CONFIG/TypeSystem.xml $CLAMP_OUT/TypeSystem.xml
 if [ ! -f $SAMPLE_FILE ]; then
     ls $DATA_IN | shuf -n $RANDOM_SAMPLE | sed 's/\.txt/\.txt\.xmi/' > $SAMPLE_FILE
     echo "TypeSystem.xml" >> $SAMPLE_FILE

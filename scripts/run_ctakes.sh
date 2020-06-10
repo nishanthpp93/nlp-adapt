@@ -1,6 +1,6 @@
 ##### Run cTAKES #####
 mkdir -p $CTAKES_OUT
-source /home/ubuntu/umls.sh
+source $ADAPT_SCRIPTS/umls.sh
 $CTAKES_HOME/bin/runClinicalPipeline.sh -i $DATA_IN --xmiOut $CTAKES_OUT
 
 ##### Create Archive for NLP-TAB #####

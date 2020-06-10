@@ -1,17 +1,17 @@
-rm /home/ubuntu/amicus/TypeSystems/*
-cp /home/ubuntu/amicus/nlpie/AmicusTypeSystem.xml /home/ubuntu/amicus/TypeSystems/AmicusTypeSystem.xml
+rm $AMICUS_HOME/TypeSystems/*
+cp $AMICUS_CONFIG/AmicusTypeSystem.xml $AMICUS_HOME/TypeSystems/AmicusTypeSystem.xml
 
 #BioMedICUS
-cp /home/ubuntu/host_data/biomedicus_out/TypeSystem.xml /home/ubuntu/amicus/TypeSystems/BiomedICUSTypeSystem.xml
+cp $BIOMEDICUS_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/BiomedICUSTypeSystem.xml
 
 #cTAKES
-cp /home/ubuntu/host_data/ctakes_out/TypeSystem.xml /home/ubuntu/amicus/TypeSystems/cTAKESTypeSystem.xml
+cp $CTAKES_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/cTAKESTypeSystem.xml
 
 #MetaMap
-cp /home/ubuntu/host_data/metamap_out/TypeSystem.xml /home/ubuntu/amicus/TypeSystems/MetaMapTypeSystem.xml
+cp $METAMAP_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/MetaMapTypeSystem.xml
 
 # CLAMP
-cp /home/ubuntu/host_data/clamp_out/TypeSystem.xml /home/ubuntu/amicus/TypeSystems/TypeSystem.xml
+cp $CLAMP_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/TypeSystem.xml
 
 # --- BUILD ---
 pushd $AMICUS_HOME
@@ -20,9 +20,9 @@ popd
 
 # --- RUN ---
 if [ -f /home/ubuntu/Downloads/export.yml ]; then
-    java -jar /home/ubuntu/amicus/amicus.jar /home/ubuntu/Downloads/export.yml
+    java -jar $AMICUS_HOME/amicus.jar /home/ubuntu/Downloads/export.yml
 else
-    java -jar /home/ubuntu/amicus/amicus.jar /home/ubuntu/amicus/nlpie/merge_concepts.yml
+    java -jar $AMICUS_HOME/amicus.jar $AMICUS_CONFIG/merge_concepts.yml
 fi
 
 ##### Create Archive for NLP-TAB #####

@@ -7,10 +7,10 @@ mmserver &
 
 ##### Run UIMA against Metamap taggers #####
 source setup_uima.sh
-runCPE.sh $METAMAP_HOME/nlpie/MetaMapCPM_nlpie.xml
+runCPE.sh $METAMAP_CONFIG/MetaMapCPM_nlpie.xml
 
 ##### Create Archive for NLP-TAB #####
-cp $METAMAP_HOME/nlpie/CombinedTypeSystem.xml $METAMAP_OUT/TypeSystem.xml
+cp $METAMAP_CONFIG/CombinedTypeSystem.xml $METAMAP_OUT/TypeSystem.xml
 if [ ! -f $SAMPLE_FILE ]; then
     ls $DATA_IN | shuf -n $RANDOM_SAMPLE | sed 's/\.txt/\.txt\.xmi/' > $SAMPLE_FILE
     echo "TypeSystem.xml" >> $SAMPLE_FILE

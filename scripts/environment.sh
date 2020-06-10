@@ -7,6 +7,15 @@ export DATA_IN=$DATA_DIRECTORY/data_in
 export RANDOM_SAMPLE=50
 export SAMPLE_FILE=$DATA_DIRECTORY/nlptab_manifest.txt
 
+#NLP-ADAPT
+export NLP_ADAPT_HOME=/usr/local/nlp_tools/nlp-adapt
+export ADAPT_CONFIG=$NLP_ADAPT_HOME/config
+export AMICUS_CONFIG=$ADAPT_CONFIG/amicus
+export BIOMEDICUS_CONFIG=$ADAPT_CONFIG/biomedicus
+export CLAMP_CONFIG=$ADAPT_CONFIG/clamp
+export METAMAP_CONFIG=$ADAPT_CONFIG/metamap
+export ADAPT_SCRIPTS=$NLP_ADAPT_HOME/scripts
+
 #UIMA
 export UIMA_HOME=/usr/local/nlp_tools/apache-uima
 
@@ -16,7 +25,7 @@ export CLAMP_OUT=$DATA_DIRECTORY/clamp_out
 
 #cTAKES
 export CTAKES_HOME=/usr/local/nlp_tools/apache-ctakes-4.0.0
-# source /usr/local/nlp_tools/umls.sh
+# source $ADAPT_SCRIPTS/umls.sh
 export CTAKES_OUT=$DATA_DIRECTORY/ctakes_out
 
 #METAMAP
