@@ -20,7 +20,7 @@
   <collectionReader>
     <collectionIterator>
       <descriptor>
-        <import location="../desc/cr/TextFilesArtifactSource.xml"/>
+	<import location="/usr/local/nlp_tools/biomedicus/desc/cr/TextFilesArtifactSource.xml"/>
       </descriptor>
       <configurationParameterSettings>
         <nameValuePair>
@@ -35,7 +35,7 @@
   <casProcessors casPoolSize="3" processingUnitThreadCount="1">
     <casProcessor deployment="integrated" name="Default BioMedICUS Pipeline">
       <descriptor>
-        <import location="../desc/ae/DefaultClinicalDocumentsPipeline.xml"/>
+	<import location="/usr/local/nlp_tools/biomedicus/desc/ae/DefaultClinicalDocumentsPipeline.xml"/>
       </descriptor>
       <deploymentParameters/>
       <errorHandling>
@@ -47,7 +47,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="XMI Writer">
       <descriptor>
-        <import location="../desc/ae/writer/XmiWriter.xml"/>
+	<import location="/usr/local/nlp_tools/biomedicus/desc/ae/writer/XmiWriter.xml"/>
       </descriptor>
       <deploymentParameters/>
       <errorHandling>

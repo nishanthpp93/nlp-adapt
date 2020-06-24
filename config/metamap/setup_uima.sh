@@ -1,11 +1,18 @@
+#!/bin/bash
+
 # MetaMap UIMA settings
 # source this in bash or sh using:
 #   . ./bin/setup_uima.sh
+
+set -x
+
 BASEDIR=$TOOLS_HOME/metamap_2020/public_mm
 export BASEDIR
 
 MM_API_UIMA=${BASEDIR}/src/uima
 export MM_API_UIMA
+MM_UIMA=${BASEDIR}/src/uima/lib/metamap-api-uima.jar
+export MM_UIMA
 JAVAAPI=${BASEDIR}/src/javaapi/dist/MetaMapApi.jar
 export JAVAAPI
 PROLOGBEANS=${BASEDIR}/src/javaapi/dist/prologbeans.jar
@@ -34,6 +41,7 @@ ${MM_API_UIMA}/desc:\
 ${BASEDIR}/nlpie:\
 ${MM_API_UIMA}/lib/metamap-api-uima.jar:\
 ${UIMA_CLASSPATH}:\
+${MM_UIMA}:\
 ${JAVAAPI}:\
 ${PROLOGBEANS}
 export CLASSPATH
@@ -42,3 +50,5 @@ PATH=$PATH:${UIMA_HOME}/bin
 export PATH
 
 #fin
+set +x
+

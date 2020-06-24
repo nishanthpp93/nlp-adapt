@@ -1,3 +1,9 @@
+#!/bin/bash
+
+. ./environment.sh
+
+set -x
+
 ##### Run BiomedICUS #####
 $BIOMEDICUS_HOME/bin/runCPE.sh $BIOMEDICUS_CONFIG/PlainTextCPM_nlpie.xml
 
@@ -15,3 +21,4 @@ BIOMEDICUS_META='{"systemName":"BioMedICUS", "systemDescription":"BioMedICUS ann
 RESPONSE=$(echo $BIOMEDICUS_META | curl -sS -d @- http://localhost:9200/_nlptab-systemindexmeta)
 curl -sS --data-binary @$BIOMEDICUS_OUT.zip -H 'Content-Type: application/zip' "http://localhost:9200/_nlptab-systemindex?instance=default&index=$(echo $RESPONSE | jq -r .index)&useXCas=false"
 
+set +x

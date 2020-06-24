@@ -1,3 +1,9 @@
+#!/bin/bash
+
+. ./environment.sh
+
+set -x
+
 rm $AMICUS_HOME/TypeSystems/*
 cp $AMICUS_CONFIG/AmicusTypeSystem.xml $AMICUS_HOME/TypeSystems/AmicusTypeSystem.xml
 
@@ -14,15 +20,15 @@ cp $METAMAP_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/MetaMapTypeSystem.xml
 cp $CLAMP_OUT/TypeSystem.xml $AMICUS_HOME/TypeSystems/TypeSystem.xml
 
 # --- BUILD ---
-pushd $AMICUS_HOME
-./build.sh
-popd
+#pushd $AMICUS_HOME
+#./build.sh
+#popd
 
 # --- RUN ---
 if [ -f $TOOLS_HOME/nlp_adapt/export.yml ]; then
-    java -jar $AMICUS_HOME/amicus.jar $TOOLS_HOME/nlp_adapt/export.yml
+    java -cp "$CLASSPATH:$AMICUS_HOME/amicus.jar:$METAMAP_HOME/src/uima/lib/metamap-api-uima.jar" edu.umn.amicus.AmicusPipeline $TOOLS_HOME/nlp_adapt/export.yml
 else
-    java -jar $AMICUS_HOME/amicus.jar $AMICUS_CONFIG/merge_concepts.yml
+    java -cp "$CLASSPATH:$AMICUS_HOME/amicus.jar:$METAMAP_HOME/src/uima/lib/metamap-api-uima.jar" edu.umn.amicus.AmicusPipeline $AMICUS_CONFIG/merge_concepts.yml
 fi
 
 ##### Create Archive for NLP-TAB #####
@@ -38,3 +44,6 @@ AMICUS_META='{"systemName":"Amicus", "systemDescription":"Amicus merged annotati
 
 RESPONSE=$(echo $AMICUS_META | curl -sS -d @- http://localhost:9200/_nlptab-systemindexmeta)
 curl -sS --data-binary @$AMICUS_OUT.zip -H 'Content-Type: application/zip' "http://localhost:9200/_nlptab-systemindex?instance=default&index=$(echo $RESPONSE | jq -r .index)&useXCas=false"
+
+set +x
+

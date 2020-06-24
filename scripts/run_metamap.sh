@@ -1,3 +1,9 @@
+#!/bin/bash
+
+. ./environment.sh
+
+set -x
+
 export JAVA_TOOL_OPTIONS='-Xms2G -Xmx6G -XX:MinHeapFreeRatio=25 -XX:+UseG1GC'
 
 ##### Start Metamap Tagger Servers #####
@@ -6,8 +12,8 @@ wsdserverctl start
 mmserver &
 
 ##### Run UIMA against Metamap taggers #####
-source setup_uima.sh
-runCPE.sh $METAMAP_CONFIG/MetaMapCPM_nlpie.xml
+. $METAMAP_CONFIG/setup_uima.sh
+$UIMA_HOME/bin/runCPE.sh $METAMAP_CONFIG/MetaMapCPM_nlpie.xml
 
 ##### Create Archive for NLP-TAB #####
 cp $METAMAP_CONFIG/CombinedTypeSystem.xml $METAMAP_OUT/TypeSystem.xml
@@ -23,3 +29,6 @@ popd
 METAMAP_META='{"systemName":"MetaMap", "systemDescription":"MetaMap UIMA annotation engine", "instance":"default"}'
 RESPONSE=$(echo $METAMAP_META | curl -sS -d @- http://localhost:9200/_nlptab-systemindexmeta)
 curl -sS --data-binary @$METAMAP_OUT.zip -H 'Content-Type: application/zip' "http://localhost:9200/_nlptab-systemindex?instance=default&index=$(echo $RESPONSE | jq -r .index)&useXCas=false"
+
+set +x
+

@@ -1,6 +1,11 @@
+#!/bin/bash
+set -x
+
+. ./environment.sh
+
 ##### Run cTAKES #####
 mkdir -p $CTAKES_OUT
-source $ADAPT_SCRIPTS/umls.sh
+. $ADAPT_SCRIPTS/umls.sh
 $CTAKES_HOME/bin/runClinicalPipeline.sh -i $DATA_IN --xmiOut $CTAKES_OUT
 
 ##### Create Archive for NLP-TAB #####
@@ -17,3 +22,5 @@ popd
 CTAKES_META='{"systemName":"cTAKES", "systemDescription":"cTAKES annotation engine", "instance":"default"}'
 RESPONSE=$(echo $CTAKES_META | curl -sS -d @- http://localhost:9200/_nlptab-systemindexmeta)
 curl -sS --data-binary @$CTAKES_OUT.zip -H 'Content-Type: application/zip' "http://localhost:9200/_nlptab-systemindex?instance=default&index=$(echo $RESPONSE | jq -r .index)&useXCas=false"
+
+set +x
