@@ -31,12 +31,12 @@ export CTAKES_OUT=$DATA_DIRECTORY/ctakes_out
 
 #METAMAP
 export METAMAP_HOME=$TOOLS_HOME/metamap_2020/public_mm
-export PATH=$TOOLS_HOME/metamap_2020/public_mm/bin:$PATH
+export PATH=$METAMAP_HOME/bin:$PATH
 export METAMAP_OUT=$DATA_DIRECTORY/metamap_out
 
 #METAMAPLITE
 export METAMAPLITE_HOME=$TOOLS_HOME/metamap_lite_2020/public_mm_lite
-export PATH=$TOOLS_HOME/metamap_lite_2020/public_mm_lite:$PATH
+export PATH=$METAMAPLITE_HOME:$METAMAPLITE_HOME/bin:$METAMAPLITE_HOME:$PATH
 export METAMAPLITE_OUT=$DATA_DIRECTORY/metamap_lite_out
 
 #BIOMEDICUS
