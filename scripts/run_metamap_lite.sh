@@ -6,7 +6,7 @@ set -x
 
 export JAVA_TOOL_OPTIONS='-Xms2G -Xmx6G -XX:MinHeapFreeRatio=25 -XX:+UseG1GC'
 
-for file in $DATA_IN; do
+for file in $DATA_IN/*.txt; do
 cat $file | $METAMAPLITE_HOME/metamaplite.sh --pipe
 done
 
