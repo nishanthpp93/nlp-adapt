@@ -34,6 +34,11 @@ export METAMAP_HOME=$TOOLS_HOME/metamap_2020/public_mm
 export PATH=$TOOLS_HOME/metamap_2020/public_mm/bin:$PATH
 export METAMAP_OUT=$DATA_DIRECTORY/metamap_out
 
+#METAMAPLITE
+export METAMAPLITE_HOME=$TOOLS_HOME/metamap_lite_2020/public_mm
+export PATH=$TOOLS_HOME/metamap_lite_2020/public_mm/bin:$PATH
+export METAMAPLITE_OUT=$DATA_DIRECTORY/metamap_lite_out
+
 #BIOMEDICUS
 export BIOMEDICUS_HOME=$TOOLS_HOME/biomedicus
 export BIOMEDICUS_CONF=$TOOLS_HOME/biomedicus/config
