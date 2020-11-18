@@ -36,7 +36,7 @@ export METAMAP_OUT=$DATA_DIRECTORY/metamap_out
 
 #METAMAPLITE
 export METAMAPLITE_HOME=$TOOLS_HOME/metamap_lite_2020/public_mm_lite
-export PATH=$TOOLS_HOME/metamap_lite_2020/public_mm_lite/bin:$PATH
+export PATH=$TOOLS_HOME/metamap_lite_2020/public_mm_lite:$PATH
 export METAMAPLITE_OUT=$DATA_DIRECTORY/metamap_lite_out
 
 #BIOMEDICUS
