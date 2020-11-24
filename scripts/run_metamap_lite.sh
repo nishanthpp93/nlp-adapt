@@ -6,12 +6,13 @@ set -x
 
 export JAVA_TOOL_OPTIONS='-Xms2G -Xmx6G -XX:MinHeapFreeRatio=25 -XX:+UseG1GC'
 
+pushd $DATA_IN
+touch files
+ls -d -1 "$PWD/"*.txt > files
+popd
+
 pushd $METAMAPLITE_HOME
-for file in $DATA_IN/*.txt; do
-file_base_name=$(basename "${file}")
-file_name=${file_base_name%.*}
-cat "$file" | $METAMAPLITE_HOME/metamaplite.sh --pipe > $METAMAPLITE_OUT/"$file_name".txt.csv
-done
+$METAMAPLITE_HOME/metamaplite.sh --list_acronyms --list_sentences_postags --filelistfn=$DATA_IN/files
 popd
 
 set +x
