@@ -13,6 +13,7 @@ popd
 
 pushd $METAMAPLITE_HOME
 $METAMAPLITE_HOME/metamaplite.sh --filelistfn=$DATA_IN/files
+mv *.mmi $METAMAPLITE_OUT/
 popd
 
 set +x
