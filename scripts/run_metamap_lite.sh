@@ -17,7 +17,7 @@ mv $DATA_IN/*.mmi $METAMAPLITE_OUT/
 popd
 
 pushd $METAMAPLITE_OUT
-for f in *.txt; do
+for f in $METAMAPLITE_OUT/*.txt; do
   mv -- "$f" "${f%.mmi}.txt"
 done
 popd
