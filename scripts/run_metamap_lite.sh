@@ -16,5 +16,11 @@ $METAMAPLITE_HOME/metamaplite.sh --filelistfn=$DATA_IN/files
 mv $DATA_IN/*.mmi $METAMAPLITE_OUT/
 popd
 
+pushd $METAMAPLITE_OUT
+for f in *.txt; do
+  mv -- "$f" "${f%.mmi}.txt"
+done
+popd
+
 set +x
 
