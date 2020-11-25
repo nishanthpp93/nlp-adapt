@@ -12,7 +12,7 @@ ls -d -1 "$PWD/"*.txt > files
 popd
 
 pushd $METAMAPLITE_HOME
-$METAMAPLITE_HOME/metamaplite.sh --list_sentences_postags --filelistfn=$DATA_IN/files
+$METAMAPLITE_HOME/metamaplite.sh --filelistfn=$DATA_IN/files
 popd
 
 set +x
